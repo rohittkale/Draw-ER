@@ -1,0 +1,174 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Betty Boulder Class Diagram">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- USER -->
+        <mxCell id="user" value="User
+-------------------------
+userId
+name
+email
+phone
+role
+-------------------------
+register()
+login()
+searchProperty()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="180" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- AGENT -->
+        <mxCell id="agent" value="Agent
+-------------------------
+agentId
+name
+licenseNo
+agency
+-------------------------
+addProperty()
+manageAppointments()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="40" width="180" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- PROPERTY -->
+        <mxCell id="property" value="Property
+-------------------------
+propertyId
+title
+price
+location
+type
+-------------------------
+updateDetails()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- CONVERSATION -->
+        <mxCell id="conversation" value="Conversation
+-------------------------
+conversationId
+userId
+-------------------------
+getMessages()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- MESSAGE -->
+        <mxCell id="message" value="Message
+-------------------------
+messageId
+conversationId
+senderType
+content
+-------------------------
+send()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="240" width="180" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- CHATBOT SERVICE -->
+        <mxCell id="chatbot" value="ChatbotService (Betty)
+-------------------------
+modelName
+systemPrompt
+-------------------------
+processQuery()
+retrieveContext()
+generateResponse()" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="480" y="240" width="240" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- DOCUMENT -->
+        <mxCell id="document" value="Document (RAG)
+-------------------------
+docId
+content
+embedding
+-------------------------
+search()" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="760" y="240" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- APPOINTMENT -->
+        <mxCell id="appointment" value="Appointment
+-------------------------
+appointmentId
+userId
+agentId
+propertyId
+-------------------------
+schedule()
+updateStatus()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="440" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- NOTIFICATION -->
+        <mxCell id="notification" value="Notification
+-------------------------
+notificationId
+userId
+message
+-------------------------
+markRead()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="440" width="200" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- AGENT LEAD -->
+        <mxCell id="lead" value="AgentLead
+-------------------------
+leadId
+userId
+agentId
+propertyId
+-------------------------
+updateStatus()" style="shape=rectangle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- RELATIONSHIPS -->
+        <mxCell id="r1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="user" target="conversation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="conversation" target="message">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="agent" target="property">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="chatbot" target="document">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="chatbot" target="conversation">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="user" target="appointment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="agent" target="appointment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="property" target="appointment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="appointment" target="notification">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="chatbot" target="lead">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
